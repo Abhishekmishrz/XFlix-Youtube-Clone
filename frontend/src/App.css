@@ -1,0 +1,16 @@
+.App {
+  /* text-align: center; */
+ 
+  background-color: #000;
+	text-align: start;
+	color: #fff;
+
+}
+
+.App-logo {
+  height: 5vmin;
+  width: 10vmax;
+  pointer-events: all;
+  cursor: pointer;
+}
+

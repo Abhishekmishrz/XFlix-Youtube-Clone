@@ -1,0 +1,64 @@
+.tool-bar{
+    background-color: #202020;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* flex-wrap: wrap; */
+	width: 100%;
+    white-space: nowrap;
+    
+}
+.active-toolbar-button.genre-btn{
+    color: #000;
+    background-color: rgba(255,255,255,0.87);
+}
+.genre-btn{
+    margin: 10px;
+	padding: 7px 14px;
+	border-radius: 20px;
+	cursor: pointer;
+	white-space: nowrap;
+}
+.genre-btn:hover{
+    background-color:rgba(255,255,255,0.1);
+}
+.active-toolbar-button.genre-btn:hover{
+   
+    background-color: rgba(255,255,255,0.7);
+}
+.btn{
+    margin: 10px;
+	padding: 7px 14px;
+	border-radius: 20px;
+	cursor: pointer;
+	white-space: nowrap;
+}
+
+.active-toolbar-button.btn{
+	color: #000;
+    background-color: rgba(255,255,255,0.87);
+}
+.btn:hover{
+    background-color:rgba(255,255,255,0.1);
+}
+.active-toolbar-button.btn:hover{
+   
+    background-color: rgba(255,255,255,0.7);
+}
+
+.release-btn{
+	/* width: 50px; */
+	/* height: auto; */
+}
+
+.button{
+	 color: #000 !important;
+    background-color: rgba(255,255,255,0.87) !important;
+	border-radius: 20px !important;
+    background-color: white !important;
+    color: black !important;
+    margin-top: 1rem !important;
+    
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+}

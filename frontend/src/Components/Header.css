@@ -1,0 +1,27 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    height: 50%;
+    background-color: #202020
+}
+.search-desktop{
+    width: 50%;
+    color: #606060;
+    background:black;
+    border: 1px solid #444D56;border-radius: 2px 0px 0px 2px;
+   
+}
+.button{
+    background-color: #4CA3FC !important;
+    border-radius: 4px;
+    color: whitesmoke !important;
+}
+.search{
+    color: whitesmoke !important;
+}
+.search-icon{
+    cursor: pointer;
+}
+
+

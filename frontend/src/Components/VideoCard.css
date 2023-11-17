@@ -1,0 +1,49 @@
+.Video-tile{
+    cursor: pointer ;
+    /* font-family: ' sans-serif';; */
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+
+}
+.Video-tile:hover{
+    cursor: pointer;
+    opacity: 0.6;
+    transition: all 0.2s linear;
+}
+.no-videos{
+    display:flex;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 100px;
+    color: #999;
+}
+.Video-grid{
+color: white;
+}
+.preview-image{
+    width: 100%;
+}
+@media (min-width: 768px) {
+    .preview-image{
+        height: 200px;
+        object-fit: cover;
+    }
+    
+}
+.preview-image:hover {
+    transform: scale(1.1);
+}
+.video-sub-title{  
+/* font-weight: 400; */
+font-size: 14px;
+/* line-height: 16px; */
+
+/* Gray/gray-300 */
+
+color: #D1D5DA;
+}

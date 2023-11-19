@@ -1,10 +1,5 @@
 import "./GenreList.css";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import InputLabel from "@mui/material/InputLabel";
 const GenreList = ({ allGenres,onChange,value, selectedGeners, handelGenreChange }) => {
-  console.log(" this is genres from grnrelist",allGenres)
   return (
     <>
       <div className="tool-bar">
@@ -22,20 +17,16 @@ const GenreList = ({ allGenres,onChange,value, selectedGeners, handelGenreChange
           </div>
         ))}
         <div className="release-btn">
-        <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label"></InputLabel>
-          <Select
-            className="btn active-toolbar-button"
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={value}
-            label="Sort"
-            onChange= {onChange}
-          >
-            <MenuItem value="releaseDate">Release Date</MenuItem>
-            <MenuItem value="viewCount">View Count</MenuItem>
-          </Select>
-        </FormControl>
+        <select name="Sort"
+          className="btn active-toolbar-button" 
+          id="demo-simple-select"
+          label="Sort"
+          value={value}
+          onChange= {onChange}
+        >
+          <option value="releaseDate">Release Date</option>
+          <option value="viewCount">View Count</option>
+        </select>
         </div>
       </div>
     </>

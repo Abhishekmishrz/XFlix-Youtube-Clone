@@ -22,8 +22,6 @@ const LandingPage = () => {
     { label: "18+", value: "18+" },
   ];
 
-  console.log(" this is genres",allGenres)
-console.log(" this is contentRatings",allContentRatingList)
   const { enqueueSnackbar } = useSnackbar();
   const [videoList, setvideoList] = useState([]);
   const [genres, setGenres] = useState(["All"]);
@@ -34,7 +32,6 @@ console.log(" this is contentRatings",allContentRatingList)
   const handelContentRatingChange = (rating) => {
     
     const newContentRatingValue = rating.value;
-    // console.log("rating value", newContentRatingValue);
     if (newContentRatingValue === contentRating) {
       setContentRating("Anyone");
     } else {
@@ -45,19 +42,16 @@ console.log(" this is contentRatings",allContentRatingList)
   const handelGenreChange = (genre) => {
     const all = "All";
     const newGenreValue = genre.value;
-    console.log("newGenreValue", newGenreValue);
     if (newGenreValue === all) {
       setGenres([all]);
     } else {
       const genreWithoutAll = genres.filter((ele) => ele !== all);
-      console.log("genreWithoutAll", genreWithoutAll);
       let nextGenres;
       if (genreWithoutAll.includes(newGenreValue)) {
         nextGenres = genreWithoutAll.filter((ele) => ele !== newGenreValue);
       } else {
         nextGenres = [...genreWithoutAll, newGenreValue];
       }
-      console.log("nextGenres", nextGenres);
 
       if (nextGenres.length === 0) {
         setGenres([all]);
@@ -74,7 +68,6 @@ console.log(" this is contentRatings",allContentRatingList)
       const response = await axios.get(URL);
       const videos = response.data.videos;
       setvideoList(videos);
-      console.log("This is video", response.data);
       return videos;
     } catch (e) {
       if (e.response && e.response.status === 500) {
@@ -91,7 +84,6 @@ console.log(" this is contentRatings",allContentRatingList)
   const PerformSort = async() => {
     try {
        const res = await axios.get(endpoint ,{params:{sortBy:Sort}})
-       console.log(res)
        setvideoList(res.data.videos)
        
    } catch(err) {
@@ -102,13 +94,11 @@ console.log(" this is contentRatings",allContentRatingList)
   
   const performAPICall = async () => {
     const URL = endpoint + `?genres=${genres.join(",")}&contentRating=${contentRating}`;
-    console.log("URL", URL);
 
     try {
       const response = await axios.get(URL);
       const videos = response.data.videos;
       setvideoList(videos);
-      console.log("This is video", response.data);
       return videos;
     } catch (e) {
       if (e.response && e.response.status === 500) {

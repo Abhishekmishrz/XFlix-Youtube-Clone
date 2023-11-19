@@ -24,36 +24,45 @@ function Upload(props) {
     title: "",
     genre: "",
     contentRating: "",
-    releaseDate: "",
+    releaseDate: getTodayDateString(),
     previewImage: "",
   });
+  function getTodayDateString() {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }
 
   const [isError,setIsError] = useState(false)
   const [errorMsg, setErrorMsg] =useState("Test Error")
   const { enqueueSnackbar } = useSnackbar();
   
 
-  const handleChange = (event) => {
+  const handleChange = (e) => {
     
     const newFormData = {
       ...formData,
-      [event.target.value]: event.target.value,
+      [e.target.name]: e.target.value,
     };
     setFormData(newFormData);
   };
 
  
   const handleSubmit = () => {
+    console.log("formData",formData);
     postVideoApi(formData);
     
   };
-//  console.log("Checkpoint",props.genres)
 
   const postVideoApi = async(reqBody)=>{
     
     try{
       let response = await axios.post(endpoint,reqBody)
-      console.log("response",response)
+      enqueueSnackbar("Video Uploaded successfully ", {
+        variant: "success",
+      });
       setIsError(false);
       setErrorMsg("")
       props.refresh()
@@ -90,7 +99,6 @@ function Upload(props) {
             className="form-element"
             label="Video Link"
             name="videoLink"
-            // value={formData.videoLink}
             fullWidth
             placeholder="Video Link"
             variant="outlined"
@@ -107,7 +115,6 @@ function Upload(props) {
             helperText="This link will be used to preview the thumbnail image"
             name="previewImage"
             fullWidth
-            // value={formData.previewImage}
             variant="outlined"
             style={{ marginBottom: "16px" }}
             onChange={handleChange}
@@ -122,7 +129,6 @@ function Upload(props) {
             fullWidth
             name="title"
             variant="outlined"
-            // value={formData.title}
             style={{ marginBottom: "16px" }}
             onChange={handleChange}
           />
@@ -136,7 +142,6 @@ function Upload(props) {
             fullWidth
             name="genre"
             variant="outlined"
-            // value={formData.genre}
             style={{ marginBottom: "16px" }}
             onChange={handleChange}
           >
@@ -161,7 +166,6 @@ function Upload(props) {
             fullWidth
             name="contentRating"
             variant="outlined"
-            // value={formData.contentRating}
             style={{ marginBottom: "16px" }}
             onChange={handleChange}
           >
@@ -184,10 +188,10 @@ function Upload(props) {
             helperText="This will be used to sort videos"
             InputLabelProps={{
               shrink: true,
-            }}
-            // value={formData.releaseDate}
+              label: "Release date",  
+            }} 
             onChange={handleChange}
-            
+            defaultValue={formData.releaseDate}
           />
         </DialogContent>
         <DialogActions>
